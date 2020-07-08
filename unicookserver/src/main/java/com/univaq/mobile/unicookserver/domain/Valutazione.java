@@ -14,11 +14,11 @@ public class Valutazione {
     @Column(name = "DATA", nullable = false)
     private Date data;
 
-    @Column(name = "LIKE", nullable = false)
-    private String like;
+    @Column(name = "PIACE", nullable = false)
+    private Boolean like;
 
-    @Column(name = "UNLIKE", nullable = false)
-    private String unlike;
+    @Column(name = "NONPIACE", nullable = false)
+    private Boolean unlike;
 
     @ManyToOne
     @JoinColumn(name = "ID_UTENTE", nullable = false)
@@ -44,19 +44,19 @@ public class Valutazione {
         this.data = data;
     }
 
-    public String getLike() {
+    public Boolean getLike() {
         return like;
     }
 
-    public void setLike(String like) {
+    public void setLike(Boolean like) {
         this.like = like;
     }
 
-    public String getUnlike() {
+    public Boolean getUnlike() {
         return unlike;
     }
 
-    public void setUnlike(String unlike) {
+    public void setUnlike(Boolean unlike) {
         this.unlike = unlike;
     }
 
