@@ -1,5 +1,6 @@
 package com.univaq.mobile.unicookserver.api;
 
+import com.univaq.mobile.unicookserver.domain.TipologiaSesso;
 import com.univaq.mobile.unicookserver.domain.Utente;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ public class UtenteResponse {
     private String chiaverecupero;
     private String nome;
     private String cognome;
-    private String sesso;
+    private TipologiaSesso sesso;
     private Date datanascita;
 
     public UtenteResponse() {
@@ -22,7 +23,7 @@ public class UtenteResponse {
         this.chiaverecupero = utente.getChiaverecupero();
         this.nome = utente.getNome();
         this.cognome = utente.getCognome();
-        this.sesso = utente.getSesso().toString();
+        this.sesso = utente.getSesso();
         this.datanascita = utente.getDatanascita();
     }
 
@@ -66,11 +67,11 @@ public class UtenteResponse {
         this.cognome = cognome;
     }
 
-    public String getSesso() {
+    public TipologiaSesso getSesso() {
         return sesso;
     }
 
-    public void setSesso(String sesso) {
+    public void setSesso(TipologiaSesso sesso) {
         this.sesso = sesso;
     }
 

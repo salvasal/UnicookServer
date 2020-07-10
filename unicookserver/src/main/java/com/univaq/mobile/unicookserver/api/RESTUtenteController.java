@@ -1,5 +1,6 @@
 package com.univaq.mobile.unicookserver.api;
 
+import com.univaq.mobile.unicookserver.business.services.UtenteService;
 import com.univaq.mobile.unicookserver.common.spring.security.JWTTokenUtil;
 import com.univaq.mobile.unicookserver.common.spring.security.UserDetailsImpl;
 import com.univaq.mobile.unicookserver.domain.Utente;
@@ -30,7 +31,7 @@ public class RESTUtenteController {
     private JWTTokenUtil jwtTokenUtil;
 
     @Autowired
-    private UnicookService unicookService;
+    private UtenteService utenteService;
 
     @PostMapping("/login")
     public UtenteResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws AuthenticationException {
@@ -49,11 +50,11 @@ public class RESTUtenteController {
 
     @GetMapping("/utenti")
     public List<Utente> getAll() {
-        return unicookService.findAllUtenti();
+        return utenteService.findAllUtenti();
     }
 
     @PostMapping("/utenti")
-    public Utente insert(@RequestBody Utente utente) {
-        return unicookService.createUtente(utente);
+    public void insert(@RequestBody Utente utente) {
+        utenteService.createUtente(utente);
     }
 }
