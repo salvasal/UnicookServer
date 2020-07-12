@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorie")
+@RequestMapping("/api/categorie")
 public class RESTCategoriaController {
     @Autowired
     private CategoriaService categoriaService;

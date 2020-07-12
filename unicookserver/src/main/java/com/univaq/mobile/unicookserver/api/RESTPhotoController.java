@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/photos")
+@RequestMapping("/api/photos")
 public class RESTPhotoController {
     @Autowired
     private PhotoService photoService;
