@@ -7,6 +7,7 @@ import com.univaq.mobile.unicookserver.domain.Utente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.JpaSort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,9 @@ import java.util.List;
 @Service
 @Transactional
 public class UtenteServiceImpl implements UtenteService {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private UtenteRepository utenteRepository;
 
@@ -30,6 +34,7 @@ public class UtenteServiceImpl implements UtenteService {
 
     @Override
     public void createUtente(Utente utente) throws BusinessException {
+        utente.setPassword(passwordEncoder.encode(utente.getPassword()));
         utenteRepository.save(utente);
     }
 }
