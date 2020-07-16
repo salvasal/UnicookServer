@@ -1,10 +1,7 @@
 package com.univaq.mobile.unicookserver;
 
 import com.univaq.mobile.unicookserver.business.impl.repositories.*;
-import com.univaq.mobile.unicookserver.domain.Categoria;
-import com.univaq.mobile.unicookserver.domain.Ingrediente;
-import com.univaq.mobile.unicookserver.domain.TipologiaSesso;
-import com.univaq.mobile.unicookserver.domain.Utente;
+import com.univaq.mobile.unicookserver.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Date;
+import java.util.*;
 
 @SpringBootApplication
 public class UnicookserverApplication {
@@ -131,6 +128,126 @@ public class UnicookserverApplication {
             ludovico.setSesso(TipologiaSesso.UOMO);
             ludovico.setDatanascita(java.sql.Date.valueOf("1996-10-01"));
             utenteRepository.save(ludovico);
+
+            Photo img1 = new Photo();
+            img1.setWebviewpath("images/antipasto.jpg");
+            photoRepository.save(img1);
+
+            Photo img2 = new Photo();
+            img2.setWebviewpath("images/primo.jpg");
+            photoRepository.save(img2);
+
+            Photo img3 = new Photo();
+            img3.setWebviewpath("images/secondo.jpg");
+            photoRepository.save(img3);
+
+            Photo img4 = new Photo();
+            img4.setWebviewpath("images/contorno.jpg");
+            photoRepository.save(img4);
+
+            Photo img5 = new Photo();
+            img5.setWebviewpath("images/dolce.jpg");
+            photoRepository.save(img5);
+
+            Ricetta antipastomisto = new Ricetta();
+            antipastomisto.setNomericetta("Antipasto misto");
+            antipastomisto.setDescrizione("Questa è una ricetta fake per verificare se il contenuto del campo descrizione sia totalmente leggibile");
+            antipastomisto.setPreparazione("Questa è una ricetta fake per verificare se il contenuto del campo preparazione sia totalmente leggibile");
+            antipastomisto.setTempocottura(TipologiaTempoCottura.trenta);
+            antipastomisto.setDifficolta(TipologiaDifficolta.MEDIO);
+            antipastomisto.setData(java.sql.Date.valueOf("2020-06-24"));
+            antipastomisto.setOra("10:30");
+            antipastomisto.setCategoria(antipasto);
+            Set<Ingrediente> ingredientiRicetta1 = new HashSet<>();
+            ingredientiRicetta1.add(ingr1);
+            ingredientiRicetta1.add(ingr2);
+            antipastomisto.setIngredienti(ingredientiRicetta1);
+            Set<Photo> photosRicetta1 = new HashSet<>();
+            photosRicetta1.add(img1);
+            antipastomisto.setImmagini(photosRicetta1);
+            antipastomisto.setUtente(lorenzo);
+            ricettaRepository.save(antipastomisto);
+
+            Ricetta carbonara = new Ricetta();
+            carbonara.setNomericetta("Carbonara");
+            carbonara.setDescrizione("Questa è una ricetta fake per verificare se il contenuto del campo descrizione sia totalmente leggibile");
+            carbonara.setPreparazione("Questa è una ricetta fake per verificare se il contenuto del campo preparazione sia totalmente leggibile");
+            carbonara.setTempocottura(TipologiaTempoCottura.trenta);
+            carbonara.setDifficolta(TipologiaDifficolta.FACILE);
+            carbonara.setData(java.sql.Date.valueOf("2020-06-24"));
+            carbonara.setOra("10:30");
+            carbonara.setCategoria(primi);
+            Set<Ingrediente> ingredientiRicetta2 = new HashSet<>();
+            ingredientiRicetta2.add(ingr3);
+            ingredientiRicetta2.add(ingr4);
+            ingredientiRicetta2.add(ingr5);
+            ingredientiRicetta2.add(ingr6);
+            carbonara.setIngredienti(ingredientiRicetta2);
+            Set<Photo> photosRicetta2 = new HashSet<>();
+            photosRicetta2.add(img2);
+            carbonara.setImmagini(photosRicetta2);
+            carbonara.setUtente(lorenzo);
+            ricettaRepository.save(carbonara);
+
+            Ricetta bistecca = new Ricetta();
+            bistecca.setNomericetta("Bistecca ai ferri");
+            bistecca.setDescrizione("Questa è una ricetta fake per verificare se il contenuto del campo descrizione sia totalmente leggibile");
+            bistecca.setPreparazione("Questa è una ricetta fake per verificare se il contenuto del campo preparazione sia totalmente leggibile");
+            bistecca.setTempocottura(TipologiaTempoCottura.trenta);
+            bistecca.setDifficolta(TipologiaDifficolta.FACILE);
+            bistecca.setData(java.sql.Date.valueOf("2020-06-24"));
+            bistecca.setOra("10:30");
+            bistecca.setCategoria(secondi);
+            Set<Ingrediente> ingredientiRicetta3 = new HashSet<>();
+            ingredientiRicetta3.add(ingr7);
+            ingredientiRicetta3.add(ingr8);
+            ingredientiRicetta3.add(ingr9);
+            bistecca.setIngredienti(ingredientiRicetta3);
+            Set<Photo> photosRicetta3 = new HashSet<>();
+            photosRicetta3.add(img3);
+            bistecca.setImmagini(photosRicetta3);
+            bistecca.setUtente(ludovico);
+            ricettaRepository.save(bistecca);
+
+            Ricetta bastoncini = new Ricetta();
+            bastoncini.setNomericetta("Bastoncini di zucchine");
+            bastoncini.setDescrizione("Questa è una ricetta fake per verificare se il contenuto del campo descrizione sia totalmente leggibile");
+            bastoncini.setPreparazione("Questa è una ricetta fake per verificare se il contenuto del campo preparazione sia totalmente leggibile");
+            bastoncini.setTempocottura(TipologiaTempoCottura.trenta);
+            bastoncini.setDifficolta(TipologiaDifficolta.DIFFICILE);
+            bastoncini.setData(java.sql.Date.valueOf("2020-06-24"));
+            bastoncini.setOra("10:30");
+            bastoncini.setCategoria(contorni);
+            Set<Ingrediente> ingredientiRicetta4 = new HashSet<>();
+            ingredientiRicetta4.add(ingr10);
+            bastoncini.setIngredienti(ingredientiRicetta4);
+            Set<Photo> photosRicetta4 = new HashSet<>();
+            photosRicetta4.add(img4);
+            bastoncini.setImmagini(photosRicetta4);
+            bastoncini.setUtente(ludovico);
+            ricettaRepository.save(bastoncini);
+
+            Ricetta tiramisu = new Ricetta();
+            tiramisu.setNomericetta("Tiramisù");
+            tiramisu.setDescrizione("Questa è una ricetta fake per verificare se il contenuto del campo descrizione sia totalmente leggibile");
+            tiramisu.setPreparazione("Questa è una ricetta fake per verificare se il contenuto del campo preparazione sia totalmente leggibile");
+            tiramisu.setTempocottura(TipologiaTempoCottura.sessanta);
+            tiramisu.setDifficolta(TipologiaDifficolta.MEDIO);
+            tiramisu.setData(java.sql.Date.valueOf("2020-06-24"));
+            tiramisu.setOra("10:30");
+            tiramisu.setCategoria(dolci);
+            Set<Ingrediente> ingredientiRicetta5 = new HashSet<>();
+            ingredientiRicetta5.add(ingr3);
+            ingredientiRicetta5.add(ingr11);
+            ingredientiRicetta5.add(ingr12);
+            ingredientiRicetta5.add(ingr13);
+            ingredientiRicetta5.add(ingr14);
+            tiramisu.setIngredienti(ingredientiRicetta5);
+            Set<Photo> photosRicetta5 = new HashSet<>();
+            photosRicetta5.add(img5);
+            tiramisu.setImmagini(photosRicetta5);
+            tiramisu.setUtente(salvatore);
+            ricettaRepository.save(tiramisu);
         };
     }
 
