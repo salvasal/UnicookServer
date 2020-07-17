@@ -130,23 +130,23 @@ public class UnicookserverApplication {
             utenteRepository.save(ludovico);
 
             Photo img1 = new Photo();
-            img1.setWebviewpath("images/antipasto.jpg");
+            img1.setWebviewpath("assets/images/antipasto.jpg");
             photoRepository.save(img1);
 
             Photo img2 = new Photo();
-            img2.setWebviewpath("images/primo.jpg");
+            img2.setWebviewpath("assets/images/primo.jpg");
             photoRepository.save(img2);
 
             Photo img3 = new Photo();
-            img3.setWebviewpath("images/secondo.jpg");
+            img3.setWebviewpath("assets/images/secondo.jpeg");
             photoRepository.save(img3);
 
             Photo img4 = new Photo();
-            img4.setWebviewpath("images/contorno.jpg");
+            img4.setWebviewpath("../../assets/images/contorno.jpg");
             photoRepository.save(img4);
 
             Photo img5 = new Photo();
-            img5.setWebviewpath("images/dolce.jpg");
+            img5.setWebviewpath("assets/images/dolce.jpg");
             photoRepository.save(img5);
 
             Ricetta antipastomisto = new Ricetta();

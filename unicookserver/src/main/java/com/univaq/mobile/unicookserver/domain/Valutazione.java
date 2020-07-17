@@ -21,11 +21,11 @@ public class Valutazione {
     private Boolean unlike;
 
     @ManyToOne
-    @JoinColumn(name = "ID_UTENTE", nullable = false)
+    @JoinColumn(name = "ID_UTENTE")
     private Utente utente;
 
     @ManyToOne
-    @JoinColumn(name = "ID_RICETTA", nullable = false)
+    @JoinColumn(name = "ID_RICETTA")
     private Ricetta ricetta;
 
     public Long getIDvalutazione() {
