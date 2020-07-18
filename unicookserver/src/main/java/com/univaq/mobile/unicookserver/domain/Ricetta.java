@@ -50,10 +50,6 @@ public class Ricetta {
             inverseJoinColumns = {@JoinColumn(name = "ID_PHOTO")})
     private Set<Photo> immagini = new HashSet<>();
 
-    /*@OneToMany
-    @JoinColumn(name = "IMMAGINI", nullable = false)
-    private Set<Photo> immagini = new HashSet<>();*/
-
     @ManyToOne
     @JoinColumn(name = "ID_UTENTE", nullable = false)
     private Utente utente;

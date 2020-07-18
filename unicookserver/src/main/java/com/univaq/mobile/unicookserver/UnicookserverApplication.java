@@ -248,6 +248,28 @@ public class UnicookserverApplication {
             tiramisu.setImmagini(photosRicetta5);
             tiramisu.setUtente(salvatore);
             ricettaRepository.save(tiramisu);
+
+            Valutazione v1 = new Valutazione();
+            v1.setData(java.sql.Date.valueOf("2020-06-27"));
+            v1.setLike(true);
+            v1.setUnlike(false);
+            v1.setUtente(salvatore);
+            v1.setRicetta(antipastomisto);
+            valutazioneRepository.save(v1);
+
+            Valutazione v2 = new Valutazione();
+            v2.setData(java.sql.Date.valueOf("2020-06-25"));
+            v2.setLike(false);
+            v2.setUnlike(true);
+            v2.setUtente(lorenzo);
+            v2.setRicetta(antipastomisto);
+            valutazioneRepository.save(v2);
+
+            Preferito p1 = new Preferito();
+            p1.setData(java.sql.Date.valueOf("2020-06-25"));
+            p1.setRicetta(carbonara);
+            p1.setUtente(salvatore);
+            preferitoRepository.save(p1);
         };
     }
 
